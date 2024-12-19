@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLASES PARTICULARES</title>
+    <link rel="icon" href="patin24.ico">
+    
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff7ab3, #ff477e, #ff1077);
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3.5em;
+            margin-bottom: 30px;
+            font-weight: bold;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            letter-spacing: 2px;
+        }
+
+        .schedule {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .time-slot {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+
+        .time-slot:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .time-slot h2 {
+            font-size: 2.5em;
+            margin: 15px 0;
+            color: #fffae5;
+        }
+
+        .time-slot p {
+            font-size: 1.2em;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .time-slot:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 1.2em;
+            color: #ffe600;
+            text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer a {
+            color: #ffe600;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        .footer a:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        
+
+
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #FF1493; /* Rosa más intenso */
+            border-bottom: 5px solid #FF69B4;
+        }
+
+        header .logo h1 {
+            color: white;
+            font-size: 36px;
+            font-weight: 600;
+        }
+
+        header .buscador input {
+            padding: 10px;
+            width: 250px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        header .buscador button {
+            padding: 10px 20px;
+            background-color: #FF69B4; /* Rosa más suave para el botón */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        header .buscador button:hover {
+            background-color: #D4006D; /* Efecto hover */
+        }
+
+        .carousel {
+            margin-top: 30px;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 590px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50px;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: pink;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 100%;
+        }
+
+        nav {
+            background-color: #FF1493; /* Rosa más fuerte para la barra de navegación */
+            padding: 15px 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #D4006D;
+        }
+
+        section {
+            padding: 50px 20px;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 32px;
+            color: #FF69B4; /* Título con rosa claro */
+            margin-bottom: 40px;
+        }
+
+        .productos {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+
+        .producto {
+            text-align: center;
+            background-color: #FFF0F5; /* Caja de producto rosa claro */
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 20px;
+            width: 300px;
+            margin: 15px;
+        }
+
+        .producto img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .producto p {
+            padding: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            background-color: #FF69B4; /* Rosa para los nombres de los productos */
+            margin-top: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .producto button {
+            padding: 10px 20px;
+            background-color: #FF1493;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .producto button:hover {
+            background-color: #D4006D;
+        }
+
+        .producto:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .socials {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .socials a {
+            color: #FF1493;
+            margin: 0 15px;
+            font-size: 30px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .socials a:hover {
+            color: #D4006D;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #FF1493;
+            color: white;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+
+          /* Estilos generales del botón */
+          .boton {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background-color: #ff69b4; /* Rosado */
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease; /* Transición suave para efectos */
+        }
+
+        /* Efecto cuando el mouse pasa sobre el botón */
+        .boton:hover {
+            background-color: #ff1493; /* Cambio de color al pasar el mouse */
+            transform: scale(1.1); /* Agrandamiento del botón */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
+        }
+
+        /* Efecto de "pulse" al hacer clic */
+        .boton:active {
+            transform: scale(0.95); /* Reduce el tamaño al hacer clic */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra más tenue */
+        }
+
+    </style>
+
+</head>
+<body>
+<!-- Encabezado -->
+<header>
+    <div class="logo">
+        <h1>PATIN.ART</h1>
+    </div>
+    <div class="buscador">
+        <input type="text" placeholder="Buscar productos..." id="search" oninput="filtrarProductos()">
+        <button id="searchBtn">Buscar</button>
+    </div>
+</header>
+<!-- Enlaces de navegación -->
+<nav>
+    <ul>
+        <li><a href="patin.html">INICIO</a></li>
+        <li><a href="productos.html">PRODUCTOS</a></li>
+        <li><a href="ofertas.html">OFERTAS</a></li>
+        <li><a href="https://forms.gle/8hCFEDAYqBiGdJM46">CONTACTOS</a></li>
+    </ul>
+</nav>
+<div class="container">
+    <h1>CLASES PARTICULARES</h1>
+    <div class="schedule">
+        <div class="time-slot">
+            <h2>LUNES</h2>
+                <p>13:30hs a 16:30hs</p>
+        </div>
+        <div class="time-slot">
+            <H2>MARTES</H2>
+            <p>13:30hs a 16:30hs</p>
+            </div>
+        <div class="time-slot">
+            <h2>MIERCOLES</h2>
+            <p>13:30hs a 16:30hs</p>
+        </div>
+        <div class="time-slot">
+            <h2>JUEVES</h2>
+            <p>13:30hs a 16:30hs</p>
+        </div>
+        <div class="time-slot">
+          <H2>VIERNES</H2>
+          <p>13:30hs a 16:30hs</p>
+        </div>
+        <div class="time-slot">
+            <h2>SABADO</h2>
+            <p>13:30hs a 16:30hs</p>
+        </div>
+        <!-- Botones con enlace -->
+    <a href="https://wa.me/+5950984375255" class="boton">JESSICA PALMIERI</a>
+    <a href="https://wa.me/+5950983841735" class="boton">NICOLE ACUÑA</a>
+    <a href="https://wa.me/+5950984803003" class="boton">FLORENCIA ACUÑA</a>
+    <a href="https://wa.me/+5950992869115" class="boton">DAMARIS ALEJO</a>
+
+<script>
+    const swiper = new Swiper('.swiper-container', {
+        loop: true,
+        autoplay: {
+            delay: 3000,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+
+    // Función de búsqueda
+    function filtrarProductos() {
+        const query = document.getElementById('search').value.toLowerCase();
+        const productos = document.querySelectorAll('.producto');
+
+        productos.forEach(producto => {
+            const nombre = producto.getAttribute('data-nombre').toLowerCase();
+            if (nombre.includes(query)) {
+                producto.style.display = '';
+            } else {
+                producto.style.display = 'none';
+            }
+        });
+    }
+</script>
+</body>
+</html>

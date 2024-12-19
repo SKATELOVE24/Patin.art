@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PATIN.ART</title>
+    <link rel="icon" href="patin24.ico"
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FFEBF2; /* Rosa suave de fondo */
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #FF1493; /* Rosa más intenso */
+            border-bottom: 5px solid #FF69B4;
+        }
+
+        header .logo h1 {
+            color: white;
+            font-size: 36px;
+            font-weight: 600;
+        }
+
+        header .buscador input {
+            padding: 10px;
+            width: 250px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        header .buscador button {
+            padding: 10px 20px;
+            background-color: #FF69B4; /* Rosa más suave para el botón */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        header .buscador button:hover {
+            background-color: #D4006D; /* Efecto hover */
+        }
+
+        .carousel {
+            margin-top: 40px;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 755px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50px;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: pink;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 100%;
+        }
+
+        nav {
+            background-color: #FF1493; /* Rosa más fuerte para la barra de navegación */
+            padding: 15px 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #D4006D;
+        }
+
+        section {
+            padding: 50px 20px;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 32px;
+            color: #FF69B4; /* Título con rosa claro */
+            margin-bottom: 40px;
+        }
+
+        .productos {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+
+        .producto {
+            text-align: center;
+            background-color: #FFF0F5; /* Caja de producto rosa claro */
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 20px;
+            width: 300px;
+            margin: 15px;
+        }
+
+        .producto img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .producto p {
+            padding: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            background-color: #FF69B4; /* Rosa para los nombres de los productos */
+            margin-top: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .producto button {
+            padding: 10px 20px;
+            background-color: #FF1493;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .producto button:hover {
+            background-color: #D4006D;
+        }
+
+        .producto:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .socials {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .socials a {
+            color: #FF1493;
+            margin: 0 15px;
+            font-size: 30px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .socials a:hover {
+            color: #D4006D;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #FF1493;
+            color: white;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+
+
+
+
+
+    .carousel {
+        position: relative;
+        max-width: 900;
+        margin: auto;
+    }
+
+    .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .image-container {
+        position: relative;
+        display: inline-block;
+    }
+
+    .image-container img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .image-container .btn {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #ffb6c1; /* Rosa claro */
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 14px;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .image-container .btn:hover {
+        background-color: #ff91af; /* Rosa un poco más oscuro */
+        box-shadow: 0 4px 10px rgba(255, 145, 175, 0.6);
+    }
+
+     body::-webkit-scrollbar{
+     width: 23px;
+    }
+    body::-webkit-scrollbar-thumb{
+     background:#ff0084(30,55,153,1);
+     border-radius:10px;
+     }
+    
+     body::-webkit-scrollbar-thumb:hover{
+        background:#ff0084(22,51,165);
+     }
+
+          
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado -->
+    <header>
+        <div class="logo">
+            <h1>PATIN.ART</h1>
+        </div>
+        <div class="buscador">
+            <input type="text" placeholder="Buscar productos..." id="search" oninput="filtrarProductos()">
+            <button id="searchBtn">Buscar</button>
+        </div>
+    </header>
+
+    <!-- Carrusel de imágenes -->
+    <section class="carousel">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <!-- Imagen -->
+              <div class="swiper-slide"><img src="patin.arte.jpeg" alt="Producto 2"></div>
+                <div class="swiper-slide"><img src="juntos.PNG" alt="Producto 2"></div>
+                <div class="swiper-slide"><img src="nenas.PNG" alt="Producto 3"></div>
+            </div>
+    </section>
+
+    <!-- Enlaces de navegación -->
+    <nav>
+        <ul>
+            <li><a href="promosiones.html">PROMOCIONES</a></li>
+            <li><a href="https://forms.gle/8hCFEDAYqBiGdJM46">CONTACTOS</a></li>
+            <li><a href="ubicacion.html">UBICACIÓN</a></li>
+            <li><a href="Logros.html">LOGROS DE NUESTRAS ATLETAS</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sección de Productos -->
+    <section id="productos">
+        <h2>CLASES</h2>
+        <div class="productos">
+            <div class="producto" data-nombre="FESTIVAL">
+                <a href="festival.html"><img src="festival.PNG" alt="FESTIVAL"></a>
+                <p>FESTIVAL</p>
+                  
+                
+            </div>
+            <div class="producto" data-nombre="CLASES">
+                <a href="clases.html"><img src="tizas.PNG" alt="CLASES"></a>
+                <p>CLASES</p>
+                
+            </div>
+            <div class="producto" data-nombre="CURSOS">
+                <a href="cursos.html"><img src="cursos.PNG" alt="CLASES"></a>
+                <p>CURSOS</p>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Redes sociales -->
+    <section class="socials">
+        <a href="https://www.instagram.com/patinart.jp?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/+5950984375255" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.facebook.com/clubpatinart?locale=es_LA" target="_blank"><i class="fab fa-facebook"></i></a>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2024 PATIN.ART <a href="#">Política de privacidad</a></p>
+    </footer>
+
+    <script>
+       const swiper = new Swiper('.swiper-container', {
+        loop: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+
+
+       
+
+        // Función de búsqueda
+        function filtrarProductos() {
+            const query = document.getElementById('search').value.toLowerCase();
+            const productos = document.querySelectorAll('.producto');
+
+            productos.forEach(producto => {
+                const nombre = producto.getAttribute('data-nombre').toLowerCase();
+                if (nombre.includes(query)) {
+                    producto.style.display = '';
+                } else {
+                    producto.style.display = 'none';
+                }
+            });
+        }
+
+   
+    </script>
+</body>
+</html>
